@@ -1,0 +1,68 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="matToolbarRow">
+    <span>Sistema Login</span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="align-center"></span>
+    <span class="example-spacer"></span>
+    <div>
+      <button mat-button>Sobre</button>
+      <button mat-button>Contato</button>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>Rediscar</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Verifique o correio de voz</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Desabilitar Alertas</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-card class="example-card">
+
+  <mat-card-header>
+    <mat-card-title>Logar</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Usuário" [(ngModel)]="username" name="username" autocomplete="off" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><mat-form-field class="example-full-width">
+              <input matInput placeholder="Senha" [(ngModel)]="password" type="password" autocomplete="off"
+                name="password" required>
+            </mat-form-field></td>
+        </tr>
+      </table>
+    </form>
+
+
+    <span *ngIf="UserPassInvalid">Usuário ou senha inválido!!</span>
+
+
+  </mat-card-content>
+
+
+  <mat-card-actions>
+    <button mat-raised-button (click)="login()" color="primary">Login</button>
+  </mat-card-actions>
+
+
+</mat-card>
